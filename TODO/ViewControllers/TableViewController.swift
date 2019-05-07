@@ -97,9 +97,7 @@ class TableViewController: UITableViewController {
 
         if indexPath.row < getCurrentTaskList().count{
             let item = getCurrentTaskList()[indexPath.row]
-
             item.done = !item.done
-            
             if(displayView == .all){
                 self.tableView.reloadData()
             }else{
