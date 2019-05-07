@@ -55,6 +55,11 @@
                                 <action selector="segmentedControlChange:" destination="r0s-bO-YPa" eventType="valueChanged" id="XCd-Lq-zSc"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="EKe-ya-ad0">
+                            <connections>
+                                <action selector="addNewTask:" destination="r0s-bO-YPa" id="qGr-OM-pol"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentedControl" destination="WHH-yU-1Va" id="T7J-Ci-jpY"/>
