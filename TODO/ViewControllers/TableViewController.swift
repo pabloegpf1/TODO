@@ -11,7 +11,6 @@ import UIKit
 class TableViewController: UITableViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var editButton: UIBarButtonItem!
     
     private var taskList = task.getDummyTasks()
     
@@ -25,7 +24,8 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.butto
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
     func getCurrentTaskList() -> [task]{
@@ -62,11 +62,22 @@ class TableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    @IBAction func editMode(_ sender: Any) {
-        self.tableView.setEditing(self.tableView.isEditing, animated: true)
-        self.editButton.title = self.tableView.isEditing ? "Done" : "Edit"
+    @IBAction func addNewTask(_ sender: Any) {
+        let alert = UIAlertController(title: "New Task", message: "Enter a task", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "Title"
+        }
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
+            let newTask = task(title: alert!.textFields![0].text!,done: false)
+            self.taskList.append(newTask)
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "task_cell", for: indexPath)
         
