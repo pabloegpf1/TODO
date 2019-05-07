@@ -1,6 +1,7 @@
 # TODO
-Todo iOS app
-
 <p align="center">
-<img src="https://imgur.com/sey8SbJ.png" alt="User Authentication" width="150">
+<img src="https://imgur.com/sey8SbJ.png" alt="App Icon" width="150">
 <p>
+  
+### Todo iOS app
+This is a school project for Interactive Multimedia Application Development (SFSU CSC690)
