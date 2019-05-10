@@ -88,8 +88,8 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             self.taskList.remove(at: indexPath.row)
-            self.saveState()
             self.tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
+            self.saveState()
         }
     }
     
@@ -127,6 +127,15 @@ class TableViewController: UITableViewController {
     //Load list from user defaults
     func loadState(){
         self.taskList = Task.loadTaskList()!
+    }
+    
+    // Functions for testing
+    func addTaskToList(task:Task){
+        self.taskList.append(task)
+    }
+    
+    func removeAllTasks(){
+        self.taskList.removeAll()
     }
     
 }
