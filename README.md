@@ -14,3 +14,8 @@
 
 #### Development
 I used Model-View-Controller arquitecture and unit testing for most important features of the app.
+
+#### Short demo
+<p align="center">
+<img src="https://i.imgur.com/UqWHXXU.gif" alt="User Authentication" width="350">
+<p>
